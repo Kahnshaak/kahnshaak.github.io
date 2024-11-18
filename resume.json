@@ -1,0 +1,115 @@
+{
+  "introduction": "\tHey there! 👋 I'm Bryce, a passionate tech enthusiast exploring the realms of computer science while residing in the beautiful Utah County. Currently immersed in a computer science degree at Utah Valley University, I'm on an exciting journey toward finding my niche in the ever-evolving tech universe.\n\n\t\tOriginally hailing from the Pacific Northwest and having traversed through different states, I've cultivated a love for diverse experiences and cultures. When not delving into the intricacies of code, you'll find me immersed in captivating video games, whipping up culinary wonders, or diving into the fantastical worlds of Warhammer 40k, Star Wars, and The Witcher.\n\n\t\tAs a fervent learner, I'm always up for new challenges. Whether it's mastering programming languages like Python and Rust, or delving into the realms of 3D modeling in Blender, I'm fueled by the thrill of acquiring new skills.\n\n\t\tJoin me on this journey as I navigate through the realms of technology, creativity, and exploration.\n\n\t\tWelcome to my digital space! 🚀",
+  "personalInfo": {
+    "name": "Bryce Shepard",
+    "linkedin": "https://www.linkedin.com/in/brycebshepard",
+  },
+  "objective": "Web Design Position",
+  "education": [
+    "Programming Certificate — Utah Valley University, Orem, UT August 2022",
+    "Associate of Science — Utah Valley University, Orem, UT May 2021",
+    "Bachelor of Science: Computer Science — Utah Valley University, Orem, UT Projected December 2024"
+  ],
+  "projects": [
+    {
+      "title": "Shared Storage Server",
+      "description": "Configured a server for multiple users. Implemented SSH connections as well as GUI for each user. Continued management and maintenance of the server in my home environment."
+    },
+    {
+      "title": "Nest Employee Management DB — Python",
+      "description": "Project utilizing a SQLite Database and a TKinter GUI to manage employee information."
+    },
+    {
+      "title": "Gradebook Application — Python",
+      "description": "A program that assists in the grading calculation for a couple specific university assignments, and produces reports for the whole class."
+    }
+  ],
+  "jobs": [
+    {
+      "title": "Implemntations Specialist II",
+      "company": "Global Payments Integrated",
+      "time": "Feb 2022 - Present",
+      "description": "Utilize remote technologies to configure networked devices through physical and wireless methods. Onboard external clients to use networked devices and associated PoS software. Work with clients in answering questions and troubleshooting any issues with devices, software, or onboarding processes. Train new employees on current practices, policies, and customer service skills."
+    },
+    {
+      "title": "Night Shift Lead",
+      "company": "Jimmy Johns",
+      "time": "Aug 2019 - Aug 2020",
+      "description": "Managed a team of 5 in performing cleaning, prepping, customer service, and product-making duties. Prepared reports for EoD, and trained new employees. Handled incoming online, drive-thru, and in-person orders"
+    }
+  ],
+  "coursework": [
+    "CS 2550 Web Design I",
+    "CS 2600 Computer Networks",
+    "CS 2450 Software Engineering",
+    "CS 2420 Algorithms and Data Structures",
+    "CS 3240 Discrete Math Structures II"
+  ],
+  "skills": [{
+    "category": "Soft",
+    "sk": [
+    "Experienced Trainer",
+    "Self-Starter",
+    "Customer Service"
+    ]},
+    {
+    "category": "Project Management",
+    "sk": [
+    "Microsoft 365 Suite",
+    "Google Workspace",
+    "Documentation Creation",
+    "Agile Methodologies"
+    ]},
+    {
+    "category": "Technology",
+    "sk":[
+    "Troubleshooting",
+    "Linux (Ubuntu)",
+    "Docker",
+    "Git",
+    "IntelliJ",
+    "Software Development",
+    "Unity",
+    "Visual Studio Code"
+    ]
+  }],
+  "languages": [
+    "Flutter",
+    "Python",
+    "JavaScript",
+    "C#",
+    "Java",
+    "C++",
+    "Rust",
+    "SQL",
+    "HTML & CSS"
+  ],
+  "hobbies": [{
+    "activity": "Computers",
+    "note": "I have built my own computers, and hope to run a repair shop someday."
+    },
+    {
+    "activity": "Reading",
+    "note": "Currently reading 'Drive Your Plow Over the Bones of the Dead' By Olga Tokarczuk. Love novels that challenge me in some way."
+    },
+    {
+    "activity": "Movies",
+    "note": "Current favorite movie is 'Everything Everywhere All At Once'. Others I love: 'Barbenheimer', 'Hunt for the Wilder People', 'Star Wars Episode 3: Revenge of the Sith', 'Spider-man: Into the Spider-Verse'"
+    },
+    {
+    "activity": "Cardistry",
+    "note" : "Used to perform regularly, but now just do it to make people think I'm cool occasionally"
+    },
+    {
+    "activity": "Video Games",
+    "note": "Current top games: Elden Ring, Yakuza 0, Titanfall 2, Fortnite, Baldur's Gate 3"
+    },
+    {
+    "activity": "Japanese",
+    "note": "Been slowly learning Japanese for about a year, writing and speaking"
+    },
+    {
+    "activity": "D&D",
+    "note": "Currently GM my own game of Pathfinder, also am playing in another game as Morgan the Hexblade Warlock who may destroy the world if she's not careful"
+  }]
+}
