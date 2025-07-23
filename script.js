@@ -1,12 +1,16 @@
-$.getJSON("resume.json", function(json){
+$.getJSON("resume.json").done(function(json){
   displayFromJSON(json);
-});
+})
+.fail(function() {
+    console.log("resume.json not found");
+  });
 
 function collapseText(el){
-  if ($(el).css("display") !== "none") {
-    $(el).css("display", "none");
+  const $el = $(el);
+  if ($el.hasClass("hidden")) {
+    $el.removeClass("hidden");
   } else {
-    $(el).css("display", "block");
+    $el.addClass("hidden");
   }
 }
 
@@ -19,19 +23,21 @@ function displayFromJSON(resume){
   // Personal info
   $("#name").text(resume.personalInfo.name.toUpperCase());
   $("#linkedin").attr("href", resume.personalInfo.linkedin);
-  const shortLinkedin = resume.personalInfo.linkedin.split(".com")[1];
+  const shortLinkedin = resume.personalInfo.linkedin.split(".com")[1] || resume.personalInfo.linkedin;
   $("#linkedin").text(shortLinkedin);
   $("#phone").text(resume.personalInfo.phone);
   // $("#email").attr("href", `mailto:${resume.personalInfo.email}`);
   // $("#email").text(resume.personalInfo.email);
 
   //Education
-  const educationList = $("#education").append("<ul>");
+  const educationContainer = $("#education");
+  const educationList = $("<ul>");
   resume.education.forEach(element => {
     const educ = $("<li>").text(element);
     educ.attr("class", "p pl-4 ");
     educationList.append(educ);
   });
+  educationContainer.append(educationList);
 
   //Projects
   const projectList = $("#projects");
@@ -67,7 +73,8 @@ function displayFromJSON(resume){
   });
 
   //Skills
-  const skillsList = $("#skills").append($("<div>"));
+  const skillsList = $("#skills");
+  const skillsContainer = $("<div>");
   resume.skills.forEach(element => {
     const skill = $("<div>");
     const category = $("<div>").text(element.category);
@@ -80,29 +87,34 @@ function displayFromJSON(resume){
       skillContainer.append($("<div>").text(e));
     })
     skill.append(skillContainer);
-    skillsList.append(skill);
+    skillsContainer.append(skill);
   });
+  skillsList.append(skillsContainer);
 
   //Languages
-  const languagesList = $("#languages").append($("<ul>"));
+  const languageContainer = $("#languages");
+  const languagesList = $("<ul>");
   resume.languages.forEach(element => {
     const lang = $("<li>").text(element);
     lang.attr("class", "p pl-4  font-serif");
     languagesList.append(lang);
   });
+  languagesContainer.append(languagesList);
 
   //Coursework
-  const courseList = $("#coursework").append($("<ul>"));
+  const courseContainer = $("#coursework")
+  const courseList = $("<ul>");
   resume.coursework.forEach(element => {
     const course = $("<li>").text(element);
     course.attr("class", "p pl-4  font-serif");
     courseList.append(course);
   });
+  courseworkContainer.append(courseList);
 
   //Hobbies
-  const hobbiesList = $("#hobbies").append($("<div>"));
+  const hobbiesContainer = $("#hobbies")
+  const hobbiesList = $("<div>");
   resume.hobbies.forEach(element => {
-    console.log(`${element.activity}`);
     const hobby = $("<div>");
     const title = $("<div>").text(element.activity);
     title.attr("class", "title");
@@ -113,22 +125,33 @@ function displayFromJSON(resume){
     hobby.append(note);
     hobbiesList.append(hobby);
   });
+  hobbiesContainer.append(hobbiesList);
   // let hobbiesString = resume.hobbies[0];
   // for(let i = 1; i < resume.hobbies.length; i++) hobbiesString += `, ${resume.hobbies[i]}`;
   // $("#hobbies").text(hobbiesString);
 }
 
-// On page load or when changing themes, best to add inline in `head` to avoid FOUC
-if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-  document.documentElement.classList.add('dark');
-} else {
+function initializeTheme() {
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  if savedTheme == 'dark' || (!savedTheme && prefersDark)) {
+    document.documentElement.classList.add('dark');
+  } else {
   document.documentElement.classList.remove('dark');
+  }
 }
-// Whenever the user explicitly chooses light mode
-localStorage.theme = 'light';
 
-// Whenever the user explicitly chooses dark mode
-localStorage.theme = 'dark';
+initializeTheme();
 
-// Whenever the user explicitly chooses to respect the OS preference
-localStorage.removeItem('theme');
+function toggleTheme() {
+  const isDark = document.documentElement.classList.contains('dark');
+  if (isDark) {
+    document.documentElement.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+  } else {
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+  }
+}
+
