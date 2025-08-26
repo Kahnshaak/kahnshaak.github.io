@@ -14,20 +14,16 @@ function collapseText(el){
   }
 }
 
+window.collapseText = collapseText;
+
 //Populate Resume Data
 function displayFromJSON(resume){
-
-  // Introduction
-  // $("#intro").text(resume.introduction);
-
   // Personal info
   $("#name").text(resume.personalInfo.name.toUpperCase());
   $("#linkedin").attr("href", resume.personalInfo.linkedin);
   const shortLinkedin = resume.personalInfo.linkedin.split(".com")[1] || resume.personalInfo.linkedin;
   $("#linkedin").text(shortLinkedin);
   $("#phone").text(resume.personalInfo.phone);
-  // $("#email").attr("href", `mailto:${resume.personalInfo.email}`);
-  // $("#email").text(resume.personalInfo.email);
 
   //Education
   const educationContainer = $("#education");
